@@ -1,14 +1,20 @@
 from django.db import models
-import datetime
-class Player(models.Model):
-    playerName = models.CharField(max_length=50)
+
+from datetime import datetime
+
+
+
+class player(models.Model):
+    playerName = models.TextField()
     money = models.PositiveIntegerField()
-    getOutOFJail = models.BooleanField()
-    properties  = models.ForeignKey(to=Property, on_delete = models.CASCADE)
-    game  = models.ForeignKey(to=Game, on_delete = models.CASCADE)
+    getOutOFJail = models.BooleanField(default=False)
 
-
-class Game(models.Model):
-    Gamename = models.CharField(max_length=50)
-    Result = models.CharField(max_length=10)
-    createdAt = models.DateTimeField(default=datetime.now, blank=True)
+class deed(models.Model):
+    propertyName = models.TextField()
+    cost = models.PositiveIntegerField()
+    rent =  models.PositiveIntegerField()
+    color =  models.CharField(max_length=10)
+    houses = models.PositiveIntegerField()
+    hotels = models.PositiveIntegerField()
+    Owner =  models.OneToOneField(player,on_delete = models.CASCADE, related_name='owner') 
+    currentPlayer =  models.ForeignKey(to=player, on_delete = models.CASCADE,related_name='current_player', default=None)
