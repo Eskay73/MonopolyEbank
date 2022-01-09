@@ -1,6 +1,6 @@
 from django.db import models
 
-from datetime import datetime
+from Games.models import games
 
 
 
@@ -8,6 +8,7 @@ class player(models.Model):
     playerName = models.TextField()
     money = models.PositiveIntegerField()
     getOutOFJail = models.BooleanField(default=False)
+    game =  models.ForeignKey(to=games, on_delete = models.CASCADE, default="", editable=False)
 
 class deed(models.Model):
     propertyName = models.TextField()

@@ -2,7 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 # Create your views here.
+def addMoney(request):
+    pass
 
-def index(request):
-    return render(request, 'index.html')
-    # return HttpResponse('its working!')
+def payMoney(request):
+    pass
