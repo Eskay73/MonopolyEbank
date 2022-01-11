@@ -7,8 +7,10 @@ from Games.models import games
 class player(models.Model):
     playerName = models.TextField()
     money = models.PositiveIntegerField()
-    getOutOFJail = models.BooleanField(default=False)
+    getOutOFJail = models.PositiveIntegerField()
     game =  models.ForeignKey(to=games, on_delete = models.CASCADE, default="", editable=False)
+    def __str__(self):
+        return self.playerName
 
 class deed(models.Model):
     propertyName = models.TextField()
@@ -19,3 +21,5 @@ class deed(models.Model):
     hotels = models.PositiveIntegerField()
     Owner =  models.OneToOneField(player,on_delete = models.CASCADE, related_name='owner') 
     currentPlayer =  models.ForeignKey(to=player, on_delete = models.CASCADE,related_name='current_player', default=None)
+    def __str__(self):
+        return self.propertyName
