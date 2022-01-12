@@ -1,7 +1,6 @@
 from django.db import models
 from datetime import  datetime
 
-from django.db.models.fields.related import RECURSIVE_RELATIONSHIP_CONSTANT
 
 # Create your models here.
 class games(models.Model):
