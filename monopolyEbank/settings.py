@@ -1,3 +1,8 @@
+import sys
+
+sys.modules['fontawesome_free'] = __import__('fontawesome-free')
+
+
 """
 Django settings for monopolyEbank project.
 
@@ -32,19 +37,27 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    #apps
+    
     'Games.apps.GamesConfig',
     'EBank.apps.EbankConfig',
+
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    #thirdparty
+
     'django_extensions',
-     'crispy_forms',
+    'fontawesome_free'
+
 ]
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
