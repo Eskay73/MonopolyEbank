@@ -38,12 +38,12 @@ def players(request):
     return render(request, 'players.html',context)
 
 def editPlayer(request, pk):
-    task = player.objects.get(id=pk)
+    player_obj = player.objects.get(id=pk)
 
-    form = playerForm(instance=task)
+    form = playerForm(instance=player_obj)
 
     if request.method == "POST":
-        form = playerForm(request.POST, instance=task)
+        form = playerForm(request.POST, instance=player_obj)
         if form.is_valid():
             form.save()
             return redirect("players")
