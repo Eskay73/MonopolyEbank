@@ -1,0 +1,24 @@
+{% extends 'base.html'%}
+
+{% block title %}
+    Monopoly - Players
+{% endblock %}
+
+
+{% block content %}
+
+<form method="post">{% csrf_token %}
+        {{form}} 
+        <button type="submit"><i class="fas fa-user-plus"></i></button>
+    </form>
+
+    <ul>
+        {% for player in players_list %}
+            <li>
+                {{player}} 
+                <a href="{% url "editName" player.id %}"> <i class="fas fa-user-edit"></i> </a>
+                <a href="{% url "deletePlayer" player.id %}"><i class="fas fa-trash-alt"></i></a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
