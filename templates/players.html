@@ -30,5 +30,6 @@
                 <a href="{% url "deletePlayer" pk=player.id gameName=gameName %}"><i class="fas fa-trash-alt"></i></a>
             </li>
         {% endfor %}
+        {{message}}
     </ul>
 {% endblock %}

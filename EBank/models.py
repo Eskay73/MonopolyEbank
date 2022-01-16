@@ -9,6 +9,10 @@ class player(models.Model):
     money = models.PositiveIntegerField(default=1500)
     getOutOFJail = models.PositiveIntegerField(default=0)
     game =  models.ForeignKey(to=games, on_delete = models.CASCADE, default="", editable=False, null=True)
+
+    class Meta:
+        unique_together = (('playerName', 'game'),)
+
     def __str__(self):
         return self.playerName
 

@@ -40,11 +40,9 @@
             <div class="card-body button-container" style="text-align: center; font-family: 'Miriam Libre', sans-serif;">
              
              
-             
+  
               <form action= '/addGame' method="post">{% csrf_token %}
-                <div class="form-group">
-                  <input type="text" class="form-control" id="gameName" name = 'gameName'onkeyup="success()" placeholder="Game name">
-                </div>
+                {{form}}<br/>
                 <button id = 'startGame'type="submit" class="btn btn-success btn-lg" disabled>Start</button>
                 <button id = 'loadGame' type="button" class="btn btn-dark btn-lg"{% if hasGame %} disabled {% endif %}>Load</button>  
               </form>
