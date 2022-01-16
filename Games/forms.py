@@ -5,15 +5,20 @@ from .models import games
 from django.forms.widgets import TextInput,Textarea
 
 
-
 class playerForm(forms.ModelForm):
     class Meta:
         model = player
         fields=('playerName',)
+        labels = {
+            'playerName': ('Player Name'),
+        }
+        widgets = {
+            'playerName': forms.TextInput(attrs={'class': 'todo-form'},),
+        }
+        
 
 
 class gameForm(forms.ModelForm):
-
     class Meta:
         model = games
         fields=('gameName',)
