@@ -23,34 +23,27 @@ def addGame(request):
             game_name = request.POST['gameName']
             game = games(gameName=game_name)
             game.save()
-        return HttpResponseRedirect('/') 
+        return HttpResponseRedirect(f'/{game_name}/players') 
 
 
-def players(request):
+def players(request,game_name):
     form = playerForm(request.POST or None)
     context = {
-        "form": form
+        "form": form,
+        'gameName':game_name
     }
+    currentGame = games.objects.get(gameName=game_name)
     if form.is_valid():
-        form.save()
+        currentPlayer = form.save()
+        currentPlayer.game=currentGame
+        currentPlayer.save()
         context['form'] = playerForm()
-    context['players_list'] = player.objects.all()
+    context['players_list'] = player.objects.filter(game__id=currentGame.id)
     return render(request, 'players.html',context)
 
-def editPlayer(request, pk):
-    player_obj = player.objects.get(id=pk)
 
-    form = playerForm(instance=player_obj)
 
-    if request.method == "POST":
-        form = playerForm(request.POST, instance=player_obj)
-        if form.is_valid():
-            form.save()
-            return redirect("players")
-
-    return render(request, "updateName.html", {"editName": form})
-
-def deletePlayer(request, pk):
+def deletePlayer(request, pk, gameName):
     player_object = player.objects.get(id=pk)
     player_object.delete()
-    return redirect("index")
+    return redirect(f"../../../{gameName}/players")

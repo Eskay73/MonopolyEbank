@@ -5,7 +5,7 @@ from Games.models import games
 
 
 class player(models.Model):
-    playerName = models.TextField()
+    playerName = models.CharField(max_length=50)
     money = models.PositiveIntegerField(default=1500)
     getOutOFJail = models.PositiveIntegerField(default=0)
     game =  models.ForeignKey(to=games, on_delete = models.CASCADE, default="", editable=False, null=True)
@@ -13,7 +13,7 @@ class player(models.Model):
         return self.playerName
 
 class deed(models.Model):
-    propertyName = models.TextField()
+    propertyName = models.CharField(max_length=50)
     cost = models.PositiveIntegerField()
     rent =  models.PositiveIntegerField()
     color =  models.CharField(max_length=10)
