@@ -13,7 +13,9 @@ class playerForm(forms.ModelForm):
             'playerName': ('Player Name'),
         }
         widgets = {
-            'playerName': forms.TextInput(attrs={'class': 'todo-form'},),
+            'playerName': forms.TextInput(attrs={'class': 'todo-form',
+                                                'id':'playerName',
+                                            },),
         }
         
 

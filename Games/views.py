@@ -1,8 +1,9 @@
-from django.http.response import HttpResponseRedirect
+from django.http.response import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from .models import games
 from EBank.models import player
 from .forms import playerForm, gameForm
+from django.core.exceptions import ObjectDoesNotExist
 from django.db import IntegrityError
 
 
@@ -32,22 +33,14 @@ def addGame(request):
 
 
 def players(request,game_name):
+    form = playerForm()
     currentGame = games.objects.get(gameName=game_name)
-    form = playerForm(request.POST or None)
     context = {
         "form": form,
         'gameName':game_name,
         'message': '',
     }
     context['players_list'] = player.objects.filter(game__id=currentGame.id) 
-    try:
-        if form.is_valid():
-            currentPlayer = form.save()
-            currentPlayer.game=currentGame
-            currentPlayer.save()
-    except IntegrityError:
-        context['message'] = 'player already exists'   
-        context['form'] = playerForm()
     return render(request, 'players.html',context)
 
 
@@ -55,6 +48,26 @@ def players(request,game_name):
 
 
 def deletePlayer(request, pk, gameName):
+    form = playerForm()
     player_object = player.objects.get(id=pk)
     player_object.delete()
+    return redirect(f"../../../{gameName}/players") #FIX THIS
+
+
+def addPlayer(request,gameName):
+    form = playerForm()
+    playerName = request.POST['playerName']
+    context = {
+        "form": form,
+        'gameName':gameName,
+        'message': '',
+    }
+    currentGame = games.objects.get(gameName=gameName)
+    try:
+        new_player = player.objects.create(playerName = playerName, game = currentGame)
+        new_player.save() 
+    except ObjectDoesNotExist:
+        print('not player')
+    except IntegrityError:
+        print('not player')        
     return redirect(f"../../../{gameName}/players") #FIX THIS
