@@ -17,15 +17,19 @@ def payMoney(request,gameName):
     payee_id = request.POST['payee']
     payer_id = request.POST['payer']
     amount = request.POST['amount']
+    successT = True
     if amount:
-        if payee_id!='Bank':
+        if payer_id!='Bank':
+            payer = player.objects.get(id = payer_id)
+            if payer.money > int(amount):
+                payer.money= payer.money - int(amount)
+                payer.save()
+            else:
+                successT = False
+        if payee_id!='Bank' and successT:
             payee = player.objects.get(id = payee_id)
             payee.money= payee.money + int(amount)
             payee.save()
-        if payer_id!='Bank':
-            payer = player.objects.get(id = payer_id)
-            payer.money= payer.money - int(amount)
-            payer.save()
     return HttpResponseRedirect(f'../{gameName}')
 
     
