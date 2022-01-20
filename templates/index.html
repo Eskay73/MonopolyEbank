@@ -20,6 +20,10 @@
   button:hover{
     transform: scale(1.1);
   }
+  a,a:hover{
+        text-decoration: none;
+        color: whitesmoke;
+    }
 </style>
 {% endblock %}
 
@@ -44,7 +48,11 @@
               <form action= '/addGame' method="post">{% csrf_token %}
                 {{form}}<br/>
                 <button id = 'startGame'type="submit" class="btn btn-success btn-lg" disabled>Start</button>
-                <button id = 'loadGame' type="button" class="btn btn-dark btn-lg"{% if hasGame %} disabled {% endif %}>Load</button>  
+                <button id = 'loadGame' type="button" class="btn btn-dark btn-lg"{% if hasGame %} disabled {% endif %}>
+                  <a href='/games'>
+                    Load
+                  </a>
+                </button>  
               </form>
 
               

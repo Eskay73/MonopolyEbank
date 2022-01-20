@@ -66,8 +66,15 @@ def addPlayer(request,gameName):
     try:
         new_player = player.objects.create(playerName = playerName, game = currentGame)
         new_player.save() 
-    except ObjectDoesNotExist:
+    except ObjectDoesNotExist or IntegrityError:
         print('not player')
-    except IntegrityError:
-        print('not player')        
+    # except IntegrityError:
+    #     print('not player')        
     return redirect(f"../../../{gameName}/players") #FIX THIS
+
+
+def gamesList(request):
+    context = {}
+    gamesList = games.objects.all()
+    context['gamesList'] = gamesList
+    return render(request,'games.html',context)

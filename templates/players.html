@@ -49,7 +49,7 @@
             <div id='gamename' class="gamename" style="text-transform: uppercase; font-size: 1.5rem; padding: 20px; color: #4c722d;">{{gameName}}</div>
                 <form action='{% url "addPlayer" gameName=gameName %}' method="post">{% csrf_token %}
                     {% for field in form %}
-                    <label class="todo-form" for="{{ field.auto_id }}">{{ field.label }} 1</label>
+                    <label class="player-form" for="{{ field.auto_id }}">{{ field.label }} 1</label>
                     {{ field }}
                     {% endfor %}
                     <!-- {{form}}  -->

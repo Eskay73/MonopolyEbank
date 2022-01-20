@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.urls import include, path
+from django.urls import  path
 
 from . import views
 
@@ -9,5 +9,5 @@ urlpatterns = [
     path('<str:game_name>/players',views.players,name='players'),
     path("delete/<int:pk>/<str:gameName>/", views.deletePlayer, name="deletePlayer"),
     path("add/<str:gameName>/", views.addPlayer, name="addPlayer"),
-    # path('addPlayer',views.addPlayer,name='addPlayer'), 
+    path('games',views.gamesList,name='gamesList'), 
 ]

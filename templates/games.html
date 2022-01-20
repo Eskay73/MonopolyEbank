@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Monopoly - Games
+{% endblock %}
+
+{%block head %}
+<style>
+    a{
+        /* text-decoration: none; */
+        color:red;
+    }
+</style>
+
+{% endblock %}
+
+
+{% block content %}
+<h3>SAVED GAMES</h3>
+<ul>
+    {% for game in gamesList %}
+    <li>
+    <a href='./{{game}}/players'>{{game.gameName}}</a>|
+    <a href='./bank/{{game}}'> bank</a>
+    </li>
+    {% endfor %}
+
+</ul>
+
+{% endblock %}
