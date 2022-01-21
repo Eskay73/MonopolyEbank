@@ -1,0 +1,98 @@
+{% extends 'base.html'%} {% block head %} {% load static %}
+<script src="{% static 'fontawesome_free/js/all.min.js' %}"></script>
+<link
+  href="{% static 'fontawesome_free/css/all.min.css' %}"
+  rel="stylesheet"
+  type="text/css"
+/>
+<link
+  href="{% static 'fontawesome_free/css/fontawesome.css' %}"
+  rel="stylesheet"
+  type="text/css"
+/>
+<link
+  href="{% static 'fontawesome_free/css/brands.css' %}"
+  rel="stylesheet"
+  type="text/css"
+/>
+<link
+  href="{% static 'fontawesome_free/css/solid.css' %}"
+  rel="stylesheet"
+  type="text/css"
+/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"
+></script>
+<link rel="stylesheet" href="{% static 'Games/players.css' %}">
+{% endblock %}
+ {% block title %} Monopoly - Players {% endblock %}
+ {% block content %} 
+ {% load static %}
+<body>
+  <div class="vertical-center">
+    <div class="container d-flex p-2 justify-content-center">
+      <a href= '../../'><i class="fas fa-chevron-circle-left fa-2x back"></i></a>
+      <div class="card maincard">
+        <div class="img-cont text-center">
+          <img
+            class="card-img-top"
+            src="{% static 'Games/monopolyLogo.png' %}"
+            alt=""
+          />
+        </div>
+
+        <div class="card-body">
+          <div id="gamename" class="gamename">{{gameName}}</div>
+          <div class="form-list-container">
+            <form
+              action='{% url "addPlayer" gameName=gameName %}'
+              method="post"
+            >
+              {% csrf_token %} {% for field in form %}
+              <!-- <label class="todo-form" for="{{ field.auto_id }}">{{ field.label }} 1</label> -->
+              {{ field }} {% endfor %}
+              <!-- {{form}}  -->
+              <button type="submit"><i class="fas fa-user-plus"></i></button
+              ><br />
+              {{message}}
+            </form>
+            <div class="card playerCard">
+              <ul class="list-group list-group-flush">
+                {% for player in players_list %}
+                <li class="list-group-item">
+                  <img
+                    class="w-10 h-10 rounded-full float-left"
+                    src="https://avatars.dicebear.com/api/open-peeps/{{player.id}}.svg"
+                    alt=""
+                  />
+                  {{player}}
+                  <div class="float-right">
+                    <a
+                      href="{% url 'deletePlayer' pk=player.id gameName=gameName %}"
+                    >
+                      <i class="fas fa-trash-alt"></i
+                    ></a>
+                  </div>
+                </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="color-border"></div>
+</body>
+
+{% endblock %} {% block scripts %}
+$(document).on('submit','#player-form',function(e){ e.preventDefault(); $.ajax({
+type:'POST', url:'/addPlayer', data:{ player:$('#playerName').val(),
+game:$('#gamename').text(),
+csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(), }, success:
+function(data){
+<!-- alert(data) -->
+} }); document.getElementById('playerName').value = '' }); {% endblock %}

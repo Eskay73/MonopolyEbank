@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Miriam+Libre&display=swap");
+button {
+  text-transform: uppercase;
+  margin: 0 10px;
+}
+.color-border::after {
+  content: "";
+  height: 1.5rem;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to right,
+    #ff6d00 0%,
+    #ff6d00 12%,
+    #ff004f 12%,
+    #ff004f 25%,
+    #7f98b7 25%,
+    #7f98b7 37%,
+    #5a0028 37%,
+    #5a0028 50%,
+    #293f7b 50%,
+    #293f7b 62%,
+    #00a33d 62%,
+    #00a33d 75%,
+    #fee800 75%,
+    #fee800 87%,
+    #ff1100 87%,
+    #ff1100 100%
+  );
+}
+button:hover {
+  transform: scale(1.1);
+}
+.todo-form {
+  color: brown;
+}
+body {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(191, 219, 174, 1) 56%,
+    rgba(143, 188, 114, 1) 82%,
+    rgba(114, 150, 91, 1) 100%
+  );
+}
+
+.vertical-center {
+  min-height: 98vh;
+  display: flex;
+  align-items: center;
+}
+
+.maincard {
+  width: 35rem;
+  padding: 30px;
+  height: 90%;
+  overflow: auto;
+}
+
+.img-cont {
+  height: 7rem;
+}
+
+.card-img-top {
+  width: 40%;
+  height: auto;
+  padding: 5px 0;
+  margin: auto;
+}
+
+.card-body {
+  text-align: center;
+  font-family: "Miriam Libre", sans-serif;
+  height: 15rem;
+}
+
+.gamename {
+  font-family: "Miriam Libre", sans-serif;
+  font-size: 1.75rem;
+  padding: 0 0 20px 0;
+  color: #4c722d;
+}
+
+form {
+  margin-bottom: 25px;
+}
+
+.playerCard {
+  width: 18rem;
+  margin: auto;
+}
+.color-border {
+  height: 2vh;
+  width: 100%;
+  clear: both;
+}
+
+.back, a{
+    position: absolute;
+    top:1em;
+    left:1em;
+    size:110%;
+    color:#111;
+}
