@@ -29,7 +29,7 @@
     transform: scale(1.1);
   }
   .todo-form{
-      color: brown;
+      
   }
 </style>
 {% endblock %}
@@ -63,7 +63,7 @@
                     <ul class="list-group list-group-flush">
                         {% for player in players_list %}
                         <li class="list-group-item">
-                                <img class="w-10 h-10 rounded-full float-left" src="https://avatars.dicebear.com/api/open-peeps/{{player}}.svg" alt="">
+                                <img class="w-10 h-10 rounded-full float-left" src="https://avatars.dicebear.com/api/bottts/{{player.id}}.svg" alt="">
                                 {{player}} 
                                 <div class="float-right"><a href="{% url "deletePlayer" pk=player.id gameName=gameName %}"><i class="fas fa-trash-alt"></i></a></div>
                             </li>
