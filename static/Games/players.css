@@ -102,10 +102,10 @@ form {
   clear: both;
 }
 
-.back, a{
+.back, a.back{
     position: absolute;
-    top:1em;
-    left:1em;
-    size:110%;
-    color:#111;
+    top:0.5em;
+    left:0.5em;
+    font-size: 2rem;
+    color:#4c722d;
 }
