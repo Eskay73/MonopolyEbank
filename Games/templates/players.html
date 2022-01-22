@@ -62,14 +62,14 @@
             <div class="card playerCard">
               <ul class="list-group list-group-flush">
                 {% for player in players_list %}
-                <li class="list-group-item">
+                <li class="list-group-item align-middle">
                   <img
                     class="w-10 h-10 rounded-full float-left"
                     src="https://avatars.dicebear.com/api/open-peeps/{{player.id}}.svg"
                     alt=""
                   />
                   {{player}}
-                  <div class="float-right">
+                  <div class="w-10 h-10 float-right">
                     <a
                       href="{% url 'deletePlayer' pk=player.id gameName=gameName %}"
                     >
