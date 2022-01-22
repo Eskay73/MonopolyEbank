@@ -33,8 +33,10 @@ button {
 button:hover {
   transform: scale(1.1);
 }
-.todo-form {
-  color: brown;
+#playerName{
+  width: 45%;
+  margin-right: 10px;
+  /* color: brown; */
 }
 body {
   background: linear-gradient(
@@ -85,12 +87,16 @@ body {
 }
 
 .form-list-container {
-  margin-top: 50px;
+  margin-top: 15px;
 }
 
 form {
   margin-bottom: 25px;
 }
+
+/* .playerCard {
+  width: 65%;
+} */
 
 .playerCard {
   width: 18rem;
