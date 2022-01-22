@@ -13,7 +13,7 @@ class playerForm(forms.ModelForm):
             'playerName': ('Player Name'),
         }
         widgets = {
-            'playerName': forms.TextInput(attrs={'class': 'todo-form',
+            'playerName': forms.TextInput(attrs={'class': 'todo-form appearance-none bg-transparent border-none text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none',
                                                 'id':'playerName',
                                             },),
         }
