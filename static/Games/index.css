@@ -54,17 +54,22 @@ body {
   align-items: center;
 }
 .card {
-  width: 35rem;
-  padding: 30px;
+  width: 40rem;
+  padding: 2rem 30px;
+  height: 65vh;
 }
-.align-items-center {
+.logo-container {
   height: 15rem;
-  padding: 3rem 10px 1rem;
 }
 
-.card-body {
+.form-container {
   text-align: center;
   font-family: "Miriam Libre", sans-serif;
+  padding-bottom: 3rem;
+}
+
+form {
+  width: 20rem;
 }
 
 .color-border {
