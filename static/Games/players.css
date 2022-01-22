@@ -53,9 +53,9 @@ body {
 }
 
 .maincard {
-  width: 35rem;
+  width: 40rem;
   padding: 30px;
-  height: 90%;
+  height: 65vh;
   overflow: auto;
 }
 
@@ -74,6 +74,7 @@ body {
   text-align: center;
   font-family: "Miriam Libre", sans-serif;
   height: 15rem;
+  padding-top: 0;
 }
 
 .gamename {
@@ -81,6 +82,10 @@ body {
   font-size: 1.75rem;
   padding: 0 0 20px 0;
   color: #4c722d;
+}
+
+.form-list-container {
+  margin-top: 50px;
 }
 
 form {
