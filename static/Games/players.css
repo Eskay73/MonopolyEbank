@@ -33,8 +33,10 @@ button {
 button:hover {
   transform: scale(1.1);
 }
-.todo-form {
-  color: brown;
+#playerName{
+  width: 45%;
+  margin-right: 10px;
+  /* color: brown; */
 }
 body {
   background: linear-gradient(
@@ -53,9 +55,9 @@ body {
 }
 
 .maincard {
-  width: 35rem;
+  width: 40rem;
   padding: 30px;
-  height: 90%;
+  height: 65vh;
   overflow: auto;
 }
 
@@ -74,6 +76,7 @@ body {
   text-align: center;
   font-family: "Miriam Libre", sans-serif;
   height: 15rem;
+  padding-top: 0;
 }
 
 .gamename {
@@ -83,9 +86,17 @@ body {
   color: #4c722d;
 }
 
+.form-list-container {
+  margin-top: 15px;
+}
+
 form {
   margin-bottom: 25px;
 }
+
+/* .playerCard {
+  width: 65%;
+} */
 
 .playerCard {
   width: 18rem;
@@ -97,10 +108,10 @@ form {
   clear: both;
 }
 
-.back, a{
+.back, a.back{
     position: absolute;
-    top:1em;
-    left:1em;
-    size:110%;
+    top:0.5em;
+    left:0.5em;
+    font-size: 2rem;
     color:#111;
 }
