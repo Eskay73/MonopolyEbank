@@ -3,15 +3,9 @@
 {% block head%}
 BANK
 {% endblock %}
+
 {% block content %}
 
-<table>
-    {% for player in playersList %}
-        <tr>
-            <td>{{player.playerName}}</td>
-            <td>{{player.money}}</td>
-        </tr>
-    {% endfor %}
 </table>
 <form id='transactions-form' action="{{gameName}}/pay" method="post">
     {% csrf_token %}
@@ -31,7 +25,8 @@ BANK
     <input id="amount", name='amount' type='number'/>
     <button type="submit" >pay</button> 
     </form>
-    {{message}}
+
+
 {% endblock %}
 
 
