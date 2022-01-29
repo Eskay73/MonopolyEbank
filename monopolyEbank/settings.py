@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     
     'Games.apps.GamesConfig',
     'EBank.apps.EbankConfig',
+    'inventory.apps.InventoryConfig',
 
 
     'django.contrib.admin',
