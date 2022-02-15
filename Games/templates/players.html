@@ -59,12 +59,12 @@
               ><br />
               {{message}}
             </form>
-            <div class="card playerCard">
-              <ul class="list-group list-group-flush">
-                {% for player in players_list %}
+            <div class="card playerCard" >
+              <ul class="list-group list-group-flush playerList">
+                {% for player in players_list reversed %}
                 <li class="list-group-item align-middle">
                   <img
-                    class="w-12 h-12 rounded-full float-left"
+                    class="w-12 h-10 rounded-full float-left"
                     src="https://avatars.dicebear.com/api/open-peeps/{{player.id}}.svg"
                     alt=""
                   />
